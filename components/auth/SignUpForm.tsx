@@ -2,7 +2,7 @@
 "use client";
 // 2025.04.21 zod 설치 : 타입스크립트를 지원하는 스키마 검증 라이브러리. 유효성 검사 로직에 많이 사용되는 라이브러리
 
-import { ChangeEvent } from "react";
+import { ChangeEvent, useActionState, useEffect } from "react";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { FormCard } from "./FormCard";
@@ -11,8 +11,11 @@ import { useFormValidate } from "@/hooks/useFormValidate";
 import { SignUpSchema } from "@/schemas/auth";
 import { TSignUpFormError } from "@/types/form";
 import { FormMessage } from "./FormMessage";
+import { signUp } from "@/actions/signup";
+import toast from "react-hot-toast";
 
 export function SignUpForm() {
+  const [error, action, isPending] = useActionState(signUp, undefined);
   const { errors, validateField } =
     useFormValidate<TSignUpFormError>(SignUpSchema);
   // 이벤트 핸들러를 사용하기 위해서는 클라이언트 컴포넌트로 변경해야 한다.
@@ -21,14 +24,18 @@ export function SignUpForm() {
     validateField(name, value);
   };
 
-  console.log("erros", errors);
+  useEffect(() => {
+    if (error?.errorMessage) {
+      toast.error(error.errorMessage);
+    }
+  }, [error]);
 
   return (
     <FormCard
       title="회원가입"
       footer={{ label: "이미 계정이 있으신가요?", href: "/login" }}
     >
-      <form className="space-y-6">
+      <form action={action} className="space-y-6">
         {/* 이름 */}
         <div className="space-y-2">
           <Label htmlFor="name">이름</Label>
