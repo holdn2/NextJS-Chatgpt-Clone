@@ -1,3 +1,4 @@
+import { message } from "./../db/schema";
 import { z } from "zod";
 
 // 유효성 검사 로직 스키마
@@ -24,4 +25,14 @@ export const SignUpSchema = z.object({
     .regex(/[\W_]/, {
       message: "패스워드는 최소 1개 이상의 특수문자를 포함해야 합니다.",
     }),
+});
+
+// 로그인 스키마.
+export const LoginSchema = z.object({
+  email: z.string().email({
+    message: "올바른 이메일 형식을 입력해주세요.",
+  }),
+  password: z.string().min(1, {
+    message: "패스워드를 입력해주세요.",
+  }),
 });
