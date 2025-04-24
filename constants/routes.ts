@@ -6,7 +6,7 @@ export const AUTH_ROUTES = {
 };
 
 export const CHAT_ROUTES = {
-  CONVERSATIONL: "/c",
+  CONVERSATIONS: "/c",
 };
 
 export const PUBLIC_ROUTES = [AUTH_ROUTES.LOGIN, AUTH_ROUTES.SIGN_UP];
