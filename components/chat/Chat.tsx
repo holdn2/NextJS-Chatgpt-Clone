@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useChat, Message as TMessage } from "@ai-sdk/react";
 import { AutoResizingTextarea } from "./AutoResizingTextarea";
 import { Empty } from "./Empty";

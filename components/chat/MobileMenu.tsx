@@ -6,7 +6,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Sidebar } from "./Sidebar";
 import { Menu } from "lucide-react";
 import { useSheetStore } from "@/store/sheet";
 import React from "react";

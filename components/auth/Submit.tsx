@@ -4,6 +4,7 @@ import { login } from "@/actions/login";
 
 export function Submit({ children, ...others }: ComponentProps<typeof Button>) {
   const [error, action, isPending] = useActionState(login, undefined);
+  console.log(error, action);
 
   return (
     <Button disabled={isPending} type="submit" {...others}>

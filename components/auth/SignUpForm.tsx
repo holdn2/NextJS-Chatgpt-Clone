@@ -15,7 +15,7 @@ import { signUp } from "@/actions/signup";
 import toast from "react-hot-toast";
 
 export function SignUpForm() {
-  const [error, action, isPending] = useActionState(signUp, undefined);
+  const [error, action] = useActionState(signUp, undefined);
   const { errors, validateField } =
     useFormValidate<TSignUpFormError>(SignUpSchema);
   // 이벤트 핸들러를 사용하기 위해서는 클라이언트 컴포넌트로 변경해야 한다.

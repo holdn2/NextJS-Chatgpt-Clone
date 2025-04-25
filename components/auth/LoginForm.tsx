@@ -13,7 +13,7 @@ import { LoginSchema } from "@/schemas/auth";
 import { login } from "@/actions/login";
 
 export function LoginForm() {
-  const [error, action, isPending] = useActionState(login, undefined);
+  const [error, action] = useActionState(login, undefined);
   const { errors, validateField } =
     useFormValidate<TLoginFormError>(LoginSchema);
   // 이벤트 핸들러를 사용하기 위해서는 클라이언트 컴포넌트로 변경해야 한다.

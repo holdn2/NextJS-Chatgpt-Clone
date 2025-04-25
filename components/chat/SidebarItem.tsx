@@ -11,7 +11,6 @@ import {
 import { Ellipsis, Pencil, Trash } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import path from "path";
 import { useSheetStore } from "@/store/sheet";
 
 type Props = {
