@@ -1,4 +1,4 @@
-"use ";
+"use client";
 
 import { useModelStore } from "@/store/model";
 import {

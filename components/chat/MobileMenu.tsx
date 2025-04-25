@@ -9,8 +9,9 @@ import {
 import { Sidebar } from "./Sidebar";
 import { Menu } from "lucide-react";
 import { useSheetStore } from "@/store/sheet";
+import React from "react";
 
-export function MobileMenu() {
+export function MobileMenu({ children }: { children: React.ReactNode }) {
   const open = useSheetStore((state) => state.open);
   const setOpen = useSheetStore((state) => state.setOpen);
 
@@ -24,7 +25,7 @@ export function MobileMenu() {
           <div className="hidden">
             <SheetTitle>모바일 메뉴</SheetTitle>
           </div>
-          <Sidebar />
+          {children}
         </SheetContent>
       </Sheet>
     </div>
