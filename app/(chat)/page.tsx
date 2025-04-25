@@ -1,3 +1,9 @@
+import { Chat } from "@/components/chat/Chat";
+
 export default function ChatPage() {
-  return <>chat page</>;
+  return (
+    <>
+      <Chat />
+    </>
+  );
 }

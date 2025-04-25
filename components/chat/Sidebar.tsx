@@ -16,13 +16,13 @@ const DUMMY_ITEMS = [
     label:
       "새로운 긴 대화 예시입니다. 새로운 긴 대화 예시입니다.새로운 긴 대화 예시입니다.",
     icon: <MessageSquare />,
-    href: `${CHAT_ROUTES.CONVERSATIONS}`,
+    href: `${CHAT_ROUTES.CONVERSATIONS}/1`,
   },
   {
     id: "2",
     label: "일반 대화 예시입니다.",
     icon: <MessageSquare />,
-    href: `${CHAT_ROUTES.CONVERSATIONS}`,
+    href: `${CHAT_ROUTES.CONVERSATIONS}/2`,
   },
 ];
 

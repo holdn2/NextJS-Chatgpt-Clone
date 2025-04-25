@@ -12,6 +12,7 @@ import { Ellipsis, Pencil, Trash } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import path from "path";
+import { useSheetStore } from "@/store/sheet";
 
 type Props = {
   item: {
@@ -26,6 +27,7 @@ export function SidebarItem({ item }: Props) {
   const { id, href, icon, label } = item;
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const setOpen = useSheetStore((state) => state.setOpen);
 
   const handleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -33,6 +35,8 @@ export function SidebarItem({ item }: Props) {
   return (
     <Link
       href={href}
+      scroll={false}
+      onClick={() => setOpen(false)}
       // group 키워드로 자식 요소가 부모 요소의 특정 상태에 따라서 함께 바뀜
       className={cn(
         "flex items-center justify-between text-sm p-3 group hover:text-white hover:bg-white/10 rounded-lg",
